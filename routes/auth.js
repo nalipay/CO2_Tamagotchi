@@ -7,6 +7,7 @@ const User = require('../models/User.model')
 
 const { isLoggedIn, isLoggedOut } = require('../middleware/route-guard.js');
 
+
 // User signup
 
 router.get("/", isLoggedIn, (req, res, next) => {
@@ -79,10 +80,19 @@ router.post('/login', (req, res, next) => {
     .catch(error => next(error));
 })
 
+// logout
+
+// router.get('/logout', (req, res) => {
+//     req.session = null;
+//     res.redirect('/');
+//   });
 
 
-
-
+router.get("/logout", function(req, res) {
+    req.session.destroy(() => {
+     res.redirect("/"); //Inside a callback… bulletproof!
+    });
+   });
 
 
 module.exports = router;
