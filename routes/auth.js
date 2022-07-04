@@ -5,9 +5,12 @@ const mongoose = require("mongoose");
 
 const User = require('../models/User.model')
 
+const { isLoggedIn, isLoggedOut } = require('../middleware/route-guard.js');
+
 // User signup
-router.get("/", (req, res, next) => {
-    res.render("user")
+
+router.get("/", isLoggedIn, (req, res, next) => {
+    res.render("user", { userInSession: req.session.currentUser })
 })
 
 router.post('/signup', (req, res, next) => {
@@ -74,8 +77,6 @@ router.post('/login', (req, res, next) => {
       }
     })
     .catch(error => next(error));
-
-
 })
 
 
