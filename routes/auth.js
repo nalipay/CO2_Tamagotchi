@@ -82,17 +82,27 @@ router.post('/login', (req, res, next) => {
 
 // logout
 
-// router.get('/logout', (req, res) => {
-//     req.session = null;
-//     res.redirect('/');
-//   });
-
-
 router.get("/logout", function(req, res) {
     req.session.destroy(() => {
      res.redirect("/"); //Inside a callback… bulletproof!
     });
    });
 
+// delete
+
+router.get('/delete/:id', (req, res, next) => {
+	const userId = req.params.id
+
+
+	User.findByIdAndDelete(userId)
+		.then(deletedUser => {
+			console.log(deletedUser)
+			res.redirect('/')
+		})
+		.catch(err => {
+			next(err)
+		});
+
+    })
 
 module.exports = router;
