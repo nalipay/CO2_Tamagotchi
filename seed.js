@@ -4,7 +4,7 @@ const User = require('./models/User.model')
 
 mongoose.connect('mongodb://localhost:27017/CO2_Tamagotchi')
 
-
+require("dotenv/config");
 
 const users = [
     {

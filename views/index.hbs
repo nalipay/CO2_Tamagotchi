@@ -8,25 +8,25 @@
 <div>
     <img src="" alt="header-tamagotchi">
 
-    <form action="/signup" method="POST">
+    <form action="/user/signup" method="POST">
         <label for="username">Username: </label>
         <input type="text" name="username">
         <label for="password">Password: </label>
         <input type="password" name="password">
         <button type="submit">Sign up</button>
-        {{#if message}}
-            <p>{{message}}</p>
+        {{#if signinMessage}}
+            <p>{{signinMessage}}</p>
         {{/if}}
     </form>
 
-    <form action="/login" method="POST">
+    <form action="/user/login" method="POST">
         <label for="username">Username: </label>
         <input type="text" name="username">
         <label for="password">Password: </label>
         <input type="password" name="password">
         <button type="submit">Log in</button>
-        {{#if message}}
-            <p>{{message}}</p>
+        {{#if loginMessage}}
+            <p>{{loginMessage}}</p>
         {{/if}}
     </form>
 </div>
