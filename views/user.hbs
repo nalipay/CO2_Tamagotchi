@@ -1,7 +1,21 @@
 <h1>Hello {{userInSession.username}}</h1>
+<!--User Settings-->
 <div>
-<!--    <a href="#change">Change User Details</a> -->
     <a href="/user/delete/{{userInSession._id}}">Delete User</a>
     <br>
     <a href="/user/logout">Logout</a>
+</div>
+<!--Tamagotchi Settings-->
+<div>
+    <form action="/tamagotchi/create" method="POST">
+        <label for="avatarName">Enter Avatar Name:</label>
+        <input type="text" name="avatarName">
+        <button type="submit">Create</button>
+    </form>
+    <br>
+    <a href="/tamagotchi/update">Update Tamagotchi</a>
+    <br>
+    <a href="/tamagotchi/level">Level</a>
+    <br>
+    <a href="/tamagotchi/delete">Delete Tamagotchi</a>
 </div>

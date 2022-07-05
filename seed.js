@@ -10,11 +10,11 @@ mongoose.connect(mongouri)
 //SEEDING von user model
 const users = [
     {
-        username: "Tim",
+        username: "Alice1",
         password: "12345"
     },
     {
-        username: "Julie",
+        username: "Bob12",
         password: "abcde"
     }
 ]
