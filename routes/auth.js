@@ -11,13 +11,13 @@ const { isLoggedIn, isLoggedOut } = require('../middleware/route-guard.js');
 // User signup
 
 router.get("/", isLoggedIn, (req, res, next) => {
-    res.render("user", { userInSession: req.session.currentUser })
+	res.render("user", { userInSession: req.session.currentUser })
 })
 
 router.post('/signup', (req, res, next) => {
 	const { username, password } = req.body
 
-    if (password.length < 4) {
+	if (password.length < 4) {
 
 		res.render('index', { signinMessage: 'Your password needs to be min 4 chars' })
 		return
@@ -26,7 +26,7 @@ router.post('/signup', (req, res, next) => {
 		res.render('index', { signinMessage: 'Your username cannot be empty' })
 		return
 	}
-	
+
 	User.findOne({ username: username })
 		.then(userFromDB => {
 			if (userFromDB !== null) {
@@ -51,42 +51,42 @@ router.post('/signup', (req, res, next) => {
 // User Login
 
 router.post('/login', (req, res, next) => {
-    const {username, password} = req.body
+	const { username, password } = req.body
 
-    console.log('SESSION =====> ', req.session)
+	console.log('SESSION =====> ', req.session)
 
 
-    if (username === '' || password === '') {
-        res.render('index', {loginMessage: 'Enter username and password.'}) 
-        return
-    }
+	if (username === '' || password === '') {
+		res.render('index', { loginMessage: 'Enter username and password.' })
+		return
+	}
 
-    User.findOne({ username }) 
-    .then(user => {
-      if (!user) {
-        res.render('index', {
-          loginMessage: 'This user is not registered.'
-        });
-        return
-      }
-      else if (bcryptjs.compareSync(password, user.password)) {
-        // res.render('users/user-profile', { user })
-        req.session.currentUser = user;
-        res.redirect('/user');
-      } else {
-        res.render('index', { loginMessage: 'Incorrect password.' });
-      }
-    })
-    .catch(error => next(error));
+	User.findOne({ username })
+		.then(user => {
+			if (!user) {
+				res.render('index', {
+					loginMessage: 'This user is not registered.'
+				});
+				return
+			}
+			else if (bcryptjs.compareSync(password, user.password)) {
+				// res.render('users/user-profile', { user })
+				req.session.currentUser = user;
+				res.redirect('./user');
+			} else {
+				res.render('index', { loginMessage: 'Incorrect password.' });
+			}
+		})
+		.catch(error => next(error));
 })
 
 // logout
 
-router.get("/logout", function(req, res) {
-    req.session.destroy(() => {
-     res.redirect("/"); //Inside a callback… bulletproof!
-    });
-   });
+router.get("/logout", function (req, res) {
+	req.session.destroy(() => {
+		res.redirect("/"); //Inside a callback… bulletproof!
+	});
+});
 
 // delete
 
@@ -103,6 +103,6 @@ router.get('/delete/:id', (req, res, next) => {
 			next(err)
 		});
 
-    })
+})
 
 module.exports = router;
