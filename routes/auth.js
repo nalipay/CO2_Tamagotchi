@@ -41,6 +41,7 @@ router.post('/signup', (req, res, next) => {
 						console.log(createdUser)
 						// if we want to log the user in using passport
 						// req.login()
+						req.session.currentUser = createdUser;
 						res.redirect('/user')
 					})
 					.catch(err => next(err))

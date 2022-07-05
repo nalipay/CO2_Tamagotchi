@@ -2,7 +2,10 @@ const { Schema, model } = require("mongoose");
 
 const tamagotchiSchema = new Schema(
     {
-        avatarName: String,
+        avatarName: {
+            type: String,
+            unique: true
+        },
         levelFeatures: {
             walking: Number,
             cycling: Number,
