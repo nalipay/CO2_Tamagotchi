@@ -108,4 +108,19 @@ router.post('/publicTransport/:id', (req, res, next) => {
         })
 });
 
+// delete
+
+router.get('/delete/:id', (req, res, next) => {
+    const tamagotchiId = req.params.id
+    Tamagotchi.findByIdAndDelete(tamagotchiId)
+        .then(deletedTamagotchi => {
+            console.log(deletedTamagotchi)
+            res.redirect('/tamagotchi')
+        })
+        .catch(err => {
+            next(err)
+        });
+
+})
+
 module.exports = router;
