@@ -1,7 +1,45 @@
 <h1>Hello {{userInSession.username}}</h1>
+<!--User Settings-->
 <div>
-<!--    <a href="#change">Change User Details</a> -->
     <a href="/user/delete/{{userInSession._id}}">Delete User</a>
     <br>
     <a href="/user/logout">Logout</a>
+</div>
+<!--Tamagotchi Settings-->
+<div>
+    <form action="/tamagotchi/create" method="POST">
+        <label for="avatarName">Enter Avatar Name:</label>
+        <input type="text" name="avatarName">
+        <button type="submit">Create</button>
+    </form>
+    <br>
+    <h1>Hello I'am {{tamagotchiDetails.avatarName}}</h1>
+    <br>
+    <form action="/tamagotchi/walking/{{tamagotchiDetails._id}}" method="POST">
+        <label for="levelFeatures.walking">km walked</label>
+        <input type="number" name="km">
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+    <h1>walking: {{tamagotchiDetails.levelFeatures.walking}}</h1>
+    <br>
+    <form action="/tamagotchi/cycling/{{tamagotchiDetails._id}}" method="POST">
+        <label for="levelFeatures.cycling">km cycled</label>
+        <input type="number" name="km">
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+    <h1>cycling: {{tamagotchiDetails.levelFeatures.cycling}}</h1>
+    <br>
+    <form action="/tamagotchi/publicTransport/{{tamagotchiDetails._id}}" method="POST">
+        <label for="levelFeatures.publicTransport">km publicTransport</label>
+        <input type="number" name="km">
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+    <h1>publicTransport: {{tamagotchiDetails.levelFeatures.publicTransport}}</h1>
+    <br>
+    <br>
+    <a href="/tamagotchi/delete/{{tamagotchiDetails._id}}">Delete Tamagotchi</a>
+
 </div>
