@@ -7,9 +7,18 @@ const tamagotchiSchema = new Schema(
             unique: true
         },
         levelFeatures: {
-            walking: Number,
-            cycling: Number,
-            publicTransport: Number
+            walking: {
+                type: Number,
+                default: 0
+            },
+            cycling: {
+                type: Number,
+                default: 0
+            },
+            publicTransport: {
+                type: Number,
+                default: 0
+            },
         },
 
         user: {

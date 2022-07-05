@@ -32,5 +32,32 @@ router.post('/create', (req, res, next) => {
         .catch(err => next(err))
 });
 
+// Tamagotchi update walking
+router.get('/walking/:id', (req, res, next) => {
+    const tamagotchiId = req.params.id
+    Tamagotchi.findById(tamagotchiId)
+        .then(tamagotchiFromDB => {
+            console.log(tamagotchiFromDB)
+            res.render('user', { tamagotchiDetails: tamagotchiFromDB })
+        })
+        .catch(err => {
+            next(err)
+        })
+});
+
+router.post('/walking/:id', (req, res, next) => {
+    const tamagotchiId = req.params.id
+    const { km } = req.body
+    //path to tamagotchi model key has to be a string when nested :'levelFeatures.walking'
+    Tamagotchi.findByIdAndUpdate(tamagotchiId, { $inc: { 'levelFeatures.walking': km } }, { new: true })
+        .then(() => {
+            res.redirect('/tamagotchi')
+        })
+        .catch(err => {
+            next(er)
+        })
+});
+
+
 
 module.exports = router;

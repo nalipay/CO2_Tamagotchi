@@ -15,7 +15,13 @@
     <br>
     <h1>Hello I'am {{tamagotchiDetails.avatarName}}</h1>
     <br>
-    <a href="/tamagotchi/update">Update Tamagotchi</a>
+    <form action="/tamagotchi/walking/{{tamagotchiDetails._id}}" method="POST">
+        <label for="levelFeatures.walking">km walked</label>
+        <input type="number" name="km">
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+    <h1>walking: {{tamagotchiDetails.levelFeatures.walking}}</h1>
     <br>
     <a href="/tamagotchi/level">Level</a>
     <br>

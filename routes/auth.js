@@ -42,7 +42,7 @@ router.post('/signup', (req, res, next) => {
 						// if we want to log the user in using passport
 						// req.login()
 						req.session.currentUser = createdUser;
-						res.redirect('/user')
+						res.redirect('/tamagotchi')
 					})
 					.catch(err => next(err))
 			}
@@ -73,7 +73,7 @@ router.post('/login', (req, res, next) => {
 			else if (bcryptjs.compareSync(password, user.password)) {
 				// res.render('users/user-profile', { user })
 				req.session.currentUser = user;
-				res.redirect('/user');
+				res.redirect('/tamagotchi');
 			} else {
 				res.render('index', { loginMessage: 'Incorrect password.' });
 			}
