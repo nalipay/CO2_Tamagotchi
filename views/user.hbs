@@ -23,7 +23,19 @@
     <br>
     <h1>walking: {{tamagotchiDetails.levelFeatures.walking}}</h1>
     <br>
-    <a href="/tamagotchi/level">Level</a>
+    <form action="/tamagotchi/cycling/{{tamagotchiDetails._id}}" method="POST">
+        <label for="levelFeatures.cycling">km cycled</label>
+        <input type="number" name="km">
+        <button type="submit">Submit</button>
+    </form>
     <br>
-    <a href="/tamagotchi/delete">Delete Tamagotchi</a>
+    <h1>cycling: {{tamagotchiDetails.levelFeatures.cycling}}</h1>
+    <br>
+    <form action="/tamagotchi/publicTransport/{{tamagotchiDetails._id}}" method="POST">
+        <label for="levelFeatures.publicTransport">km publicTransport</label>
+        <input type="number" name="km">
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+    <h1>publicTransport: {{tamagotchiDetails.levelFeatures.publicTransport}}</h1>
 </div>

@@ -58,6 +58,54 @@ router.post('/walking/:id', (req, res, next) => {
         })
 });
 
+// Tamagotchi update cycling
+router.get('/cycling/:id', (req, res, next) => {
+    const tamagotchiId = req.params.id
+    Tamagotchi.findById(tamagotchiId)
+        .then(tamagotchiFromDB => {
+            console.log(tamagotchiFromDB)
+            res.render('user', { tamagotchiDetails: tamagotchiFromDB })
+        })
+        .catch(err => {
+            next(err)
+        })
+});
 
+router.post('/cycling/:id', (req, res, next) => {
+    const tamagotchiId = req.params.id
+    const { km } = req.body
+    Tamagotchi.findByIdAndUpdate(tamagotchiId, { $inc: { 'levelFeatures.cycling': km } }, { new: true })
+        .then(() => {
+            res.redirect('/tamagotchi')
+        })
+        .catch(err => {
+            next(er)
+        })
+});
+
+// Tamagotchi update publicTransport
+router.get('/publicTransport/:id', (req, res, next) => {
+    const tamagotchiId = req.params.id
+    Tamagotchi.findById(tamagotchiId)
+        .then(tamagotchiFromDB => {
+            console.log(tamagotchiFromDB)
+            res.render('user', { tamagotchiDetails: tamagotchiFromDB })
+        })
+        .catch(err => {
+            next(err)
+        })
+});
+
+router.post('/publicTransport/:id', (req, res, next) => {
+    const tamagotchiId = req.params.id
+    const { km } = req.body
+    Tamagotchi.findByIdAndUpdate(tamagotchiId, { $inc: { 'levelFeatures.publicTransport': km } }, { new: true })
+        .then(() => {
+            res.redirect('/tamagotchi')
+        })
+        .catch(err => {
+            next(er)
+        })
+});
 
 module.exports = router;
