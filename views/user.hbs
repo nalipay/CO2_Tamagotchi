@@ -16,17 +16,17 @@
     <h1>Hello I'am {{tamagotchiDetails.avatarName}}</h1>
     <br>
 
-<!--Geolocation-->    
 
+<!--Geolocation Walking-->    
 <button id="walking-start-btn">Start Walking</button>
 <button id="walking-stop-btn">Stop Walking</button>
 
 <div id="tripmeter">
-    <p>
+    <p hidden>
         Starting Location (lat, lon):<br/>
         <span id="startLat">???</span>°, <span id="startLon">???</span>°
     </p>
-    <p>
+    <p hidden>
         Current Location (lat, lon):<br/>
         <span id="currentLat">???</span>°, <span id="currentLon">???</span>°
     </p>
@@ -37,7 +37,6 @@
 </div>
 
 <!--Walking-->   
-
     <form action="/tamagotchi/walking/{{tamagotchiDetails._id}}" method="POST">
         <label for="levelFeatures.walking">km walked</label>
         <input id="geo-walk-input" type="number" name="km">
@@ -46,29 +45,65 @@
     <br>
     <h1>walking: {{tamagotchiDetails.levelFeatures.walking}}</h1>
     <br>
-    <form action="/tamagotchi/cycling/{{tamagotchiDetails._id}}" method="POST">
-        <label for="levelFeatures.cycling">km cycled</label>
-        <input type="number" name="km">
-        <button type="submit">Submit</button>
-    </form>
+
+<!--Geolocation Cycling--> 
+<button id="cycling-start-btn">Start Cycling</button>
+<button id="cycling-stop-btn">Stop Cycling</button>
+
+<div id="tripmeter">
+    <p hidden>
+        Starting Location (lat, lon):<br/>
+        <span id="startLat">???</span>°, <span id="startLon">???</span>°
+    </p>
+    <p hidden>
+        Current Location (lat, lon):<br/>
+        <span id="currentLat">???</span>°, <span id="currentLon">???</span>°
+    </p>
+    <p>
+        Distance from starting location:<br/>
+        <span id="distance-cycling">0</span> km
+    </p>
+</div>
 
 <!--Cycling--> 
-        
+    <form action="/tamagotchi/cycling/{{tamagotchiDetails._id}}" method="POST">
+        <label for="levelFeatures.cycling">km cycled</label>
+        <input id="geo-cycle-input" type="number" name="km">
+        <button type="submit">Submit</button>
+    </form>    
     <br>
     <h1>cycling: {{tamagotchiDetails.levelFeatures.cycling}}</h1>
     <br>
+    
+<!--Geolocation Public Transport--> 
+<button id="public-start-btn">Start Journey</button>
+<button id="public-stop-btn">Stop Journey</button>
+
+<div id="tripmeter">
+    <p hidden>
+        Starting Location (lat, lon):<br/>
+        <span id="startLat">???</span>°, <span id="startLon">???</span>°
+    </p>
+    <p hidden>
+        Current Location (lat, lon):<br/>
+        <span id="currentLat">???</span>°, <span id="currentLon">???</span>°
+    </p>
+    <p>
+        Distance from starting location:<br/>
+        <span id="distance-public">0</span> km
+    </p>
+</div>
+
+<!--Public Transport--> 
     <form action="/tamagotchi/publicTransport/{{tamagotchiDetails._id}}" method="POST">
-        <label for="levelFeatures.publicTransport">km publicTransport</label>
-        <input type="number" name="km">
+        <label for="levelFeatures.publicTransport">km public transport</label>
+        <input id="geo-public-input" type="number" name="km">
         <button type="submit">Submit</button>
-    </form>
-
-<!--Cycling--> 
-
+    </form>    
     <br>
     <h1>publicTransport: {{tamagotchiDetails.levelFeatures.publicTransport}}</h1>
     <br>
-    <br>
-    <a href="/tamagotchi/delete/{{tamagotchiDetails._id}}">Delete Tamagotchi</a>
+   
+<a href="/tamagotchi/delete/{{tamagotchiDetails._id}}">Delete Tamagotchi</a>
 
-</div>
+//
