@@ -9,18 +9,27 @@ const User = require('../models/User.model')
 const { isLoggedIn, isLoggedOut } = require('../middleware/route-guard.js');
 
 
-// Tamagotchi create
+
 router.get("/", isLoggedIn, (req, res, next) => {
     const userId = req.session.currentUser._id;
     Tamagotchi.findOne({ user: userId })
         .then(tamagotchiFromDB => {
-            console.log(userId, tamagotchiFromDB)
-            res.render('user', { userInSession: req.session.currentUser, tamagotchiDetails: tamagotchiFromDB })
+            let totalMovement = tamagotchiFromDB?.levelFeatures.walking + tamagotchiFromDB?.levelFeatures.cycling + tamagotchiFromDB?.levelFeatures.publicTransport
+            let level = 0;
+            if (totalMovement >= 0 && totalMovement <= 50) {
+                level = 1
+            } else if (totalMovement >= 51 && totalMovement <= 100) {
+                level = 2
+            } else if (totalMovement >= 101) {
+                level = 3
+            }
+            console.log(totalMovement)
+            res.render('user', { userInSession: req.session.currentUser, tamagotchiDetails: tamagotchiFromDB, level })
         })
         .catch(err => next(err))
 });
 
-
+// Tamagotchi create
 router.post('/create', (req, res, next) => {
     const userId = req.session.currentUser._id
     const { avatarName } = req.body
@@ -34,6 +43,7 @@ router.post('/create', (req, res, next) => {
 
 // Tamagotchi update walking
 router.get('/walking/:id', (req, res, next) => {
+    console.log('random string')
     const tamagotchiId = req.params.id
     Tamagotchi.findById(tamagotchiId)
         .then(tamagotchiFromDB => {
