@@ -22,7 +22,10 @@ router.get("/", isLoggedIn, (req, res, next) => {
                 level = 2
             } else if (totalMovement >= 101) {
                 level = 3
+            } else if (totalMovement < 0) {
+                level = 'Cheater!!'
             }
+            
             console.log(totalMovement)
             res.render('user', { userInSession: req.session.currentUser, tamagotchiDetails: tamagotchiFromDB, level })
         })
