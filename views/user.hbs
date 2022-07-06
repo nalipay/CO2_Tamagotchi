@@ -112,3 +112,46 @@
         <h3>Level</h3>
         <h3>{{level}}</h3>
     </div>
+    
+<!--Chart-->    
+<div>
+    <canvas id="myChart"></canvas>
+</div>
+
+<script>
+  const labels = [
+    'Walking',
+    'Cycling',
+    'Public Transportation',
+  ];
+
+const walkingChart = {{tamagotchiDetails.levelFeatures.walking}}
+const cyclingChart = {{tamagotchiDetails.levelFeatures.cycling}}
+const publicChart = {{tamagotchiDetails.levelFeatures.publicTransport}}
+
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      backgroundColor:[
+      'rgb(255, 194, 202)',
+      'rgb(42, 153, 150)',
+      'rgb(33, 185, 126)'],
+      data: [walkingChart, cyclingChart, publicChart],
+    }]
+  };
+
+  
+const config = {
+  type: 'polarArea',
+  data: data,
+  options: {}
+};
+</script>
+
+<script>
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+</script>
