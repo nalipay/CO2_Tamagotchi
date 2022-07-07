@@ -14,7 +14,7 @@
 </div>
 
 <div hidden class="signup">
-    <form action="/user/signup" method="POST"></form>
+    <form action="/user/signup" method="POST">
     <label for="username">Username: </label>
     <input type="text" name="username">
     <label for="password">Password: </label>
@@ -42,24 +42,21 @@
 
 <script>
     const signupBtn = document.getElementsByClassName("signupImg")[0]
+    const loginBtn = document.getElementsByClassName("loginImg")[0]
     const signupForm = document.getElementsByClassName("signup")[0]
     const loginForm = document.getElementsByClassName("login")[0]
     signupBtn.addEventListener("click", function () {
         signupForm.hidden = false;
         loginForm.hidden = true;
     });
-</script>
-
-<script>
-    const loginBtn = document.getElementsByClassName("loginImg")[0]
-    const loginForm = document.getElementsByClassName("login")[0]
-    const signupForm = document.getElementsByClassName("signup")[0]
     loginBtn.addEventListener("click", function () {
         signupForm.hidden = true;
         loginForm.hidden = false;
 
     });
 </script>
+
+
 <divclass="someSpace">
     </div>
     <div id="about" class="index-about-sec">

@@ -12,7 +12,7 @@ body {
 .navbar-index {
   height: 120px;
   background-image: url("../images/index_navbar_backg.png");
-
+}
 .navbar {
   background-image: url("../images/navbar_top.png");
   width: 100vw;
@@ -76,7 +76,7 @@ body {
   font-size: medium;
   background-color: white;
   position: relative;
-
+}
 .navbar h1 {
   color: white;
   font-size: 40px;
@@ -168,7 +168,7 @@ body {
   height: 80px;
   padding-top: 25px;
   padding-bottom: 25px;
-
+}
 .create-btn-img {
   width: 400px;
   margin-top: 30px;
