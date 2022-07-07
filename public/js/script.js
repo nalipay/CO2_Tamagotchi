@@ -183,7 +183,7 @@ window.onload = function () {
 
 
 // view after created avatar
-/* 
+/*
 const hiddenDisplayBtn = document.getElementsByClassName("create-btn") 
 const displayAvatarView = document.getElementsByClassName("hidden-avatar")
 
