@@ -8,11 +8,11 @@
     </ul>
 </nav>
 
-<div >
+<div class="starter-egg">
     <form action="/tamagotchi/create" method="POST" class="create-egg">
-        <input type="text" class="name-tamagotchi" placeholder="Enter Avatar Name">
-        <button type="submit" style="border: 0; background: transparent">
-            <img class="create-btn" src="./images/btn_create tamagotchi.png" alt="submit" />
+        <input type="text" class="name-tamagotchi" placeholder="Enter Avatar Name" name="avatarName">
+        <button type="submit" style="border: 0; background: transparent" class="create-btn">
+            <img class="create-btn-img" src="./images/btn_create tamagotchi.png" alt="submit" />
         </button>
     </form>
 </div>
@@ -20,15 +20,8 @@
 
 
 <!--Tamagotchi Settings-->
-
-<div hidden>
+<div hidden class="hidden-avatar">
     <div>
-    <form action="/tamagotchi/create" method="POST">
-        <label for="avatarName">Enter Avatar Name:</label>
-        <input type="text" name="avatarName">
-        <button type="submit">Create</button>
-    </form>
-    <br>
     <h1>Hello I'am {{tamagotchiDetails.avatarName}}</h1>
     <br>
 
@@ -171,5 +164,4 @@ const config = {
     config
   );
 </script>
-
 </div>
