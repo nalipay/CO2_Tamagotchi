@@ -8,6 +8,9 @@
     </ul>
 </nav>
 
+
+<!--View Handler Show and hide specific parts-->
+{{#if tamagotchiNotFound}}
 <div class="starter-egg">
     <form action="/tamagotchi/create" method="POST" class="create-egg">
         <input type="text" class="name-tamagotchi" placeholder="Enter Avatar Name" name="avatarName">
@@ -17,12 +20,10 @@
     </form>
 </div>
 
-
-
-<!--Tamagotchi Settings-->
-<div hidden class="hidden-avatar">
+{{else}}
+    <div class="hidden-avatar">
     <div>
-    <h1>Hello I'am {{tamagotchiDetails.avatarName}}</h1>
+    <h1>{{tamagotchiDetails.avatarName}}</h1>
     <br>
 
 
@@ -165,3 +166,5 @@ const config = {
   );
 </script>
 </div>
+{{/if}}
+
