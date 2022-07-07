@@ -36,7 +36,6 @@ body {
   flex-direction: column;
   margin: 70px 0 70px 0;
 }
-
 .name-tamagotchi {
   background: transparent;
   background-image: url("../images/btn_name\ your\ tamagotchi.png");
@@ -58,10 +57,57 @@ body {
   margin-top: 30px;
 }
 
-a {
-  color: #00b7ff;
+/* Tamagotchi view */
+h2 {
+  color:rgb(42, 153, 150);
+  font-size: 36px;
+}
+h3 {
+  -webkit-text-stroke: 2px rgb(42, 153, 150);
+  color: white;
+  font-size: 32px;
+}
+.tracking-start-img {
+  width: 120px;
+}
+#walking-start-btn, #cycling-start-btn, #public-start-btn {
+  border:none;
+  background: transparent;
+}
+.tamagotchi-img {
+  width: 33vw;
+}
+.chart {
+  height: 30vw;
 }
 
-h1 {
-  color: 15px;
+.avatar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 30px;
+  padding-right: 30px;
+  align-items: center;
+}
+.tracking-area {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.bar-container {
+  background-image: url("../images/navbar_bottom.png");
+  width: 100vw;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bar-img-container {
+  padding: 0 30px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+}
+.bar-img {
+  width: 340px;
 }
