@@ -1,18 +1,27 @@
-<h1>Hello {{userInSession.username}}</h1>
 <!--User Settings-->
-<div>
-    <a href="/user/delete/{{userInSession._id}}">Delete User</a>
-    <br>
-    <a href="/user/logout">Logout</a>
-</div>
-<!--Tamagotchi Settings-->
-<div>
-    <form action="/tamagotchi/create" method="POST">
-        <label for="avatarName">Enter Avatar Name:</label>
-        <input type="text" name="avatarName">
-        <button type="submit">Create</button>
+
+<nav class="navbar">
+    <h1>Hello {{userInSession.username}}</h1>
+    <ul>    
+        <a href="/user/logout"><img src="./images/btn_logout.png" alt="logout" /></a>
+        <a href="/user/delete/{{userInSession._id}}"><img src="./images/btn_add_delete user.png" alt="delete" /></a>
+    </ul>
+</nav>
+
+<div class="starter-egg">
+    <form action="/tamagotchi/create" method="POST" class="create-egg">
+        <input type="text" class="name-tamagotchi" placeholder="Enter Avatar Name" name="avatarName">
+        <button type="submit" style="border: 0; background: transparent" class="create-btn">
+            <img class="create-btn-img" src="./images/btn_create tamagotchi.png" alt="submit" />
+        </button>
     </form>
-    <br>
+</div>
+
+
+
+<!--Tamagotchi Settings-->
+<div hidden class="hidden-avatar">
+    <div>
     <h1>Hello I'am {{tamagotchiDetails.avatarName}}</h1>
     <br>
 
@@ -155,3 +164,4 @@ const config = {
     config
   );
 </script>
+</div>

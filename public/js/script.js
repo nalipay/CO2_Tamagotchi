@@ -182,3 +182,22 @@ window.onload = function () {
 };
 
 
+// view after created avatar
+/* 
+const hiddenDisplayBtn = document.getElementsByClassName("create-btn") 
+const displayAvatarView = document.getElementsByClassName("hidden-avatar")
+
+const displayStarterEgg = document.getElementsByClassName("starter-egg")
+
+hiddenDisplayBtn[0].addEventListener('click', () => {
+    console.log('hurra')
+    if(displayAvatarView === 'hidden') {
+        displayAvatarView.style.display = 'visible'
+    } else {
+        displayAvatarView.style.display = 'hidden'
+    }
+
+
+      //  displayStarterEgg.style.display = 'hidden'
+})
+*/
