@@ -40,8 +40,19 @@ body {
 .name-tamagotchi {
   background: transparent;
   background-image: url("../images/btn_name\ your\ tamagotchi.png");
+  background-size: 400px;
+  background-repeat: no-repeat;
   width: 400px;
+  border: none transparent;
+  outline: none;
+  border-color: transparent;
+  border-radius: 40px;
+  height: 85px;
+  padding: 25px;
 }
+.create-egg input { font-size: 20px; font-family: 'Press Start 2P', cursive; text-align:center; 
+  color: rgb(255, 194, 202);}
+
 .create-btn {
   width: 400px;
   margin-top: 30px;
