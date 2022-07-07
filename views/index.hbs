@@ -1,41 +1,80 @@
-<nav>
+<nav class="navbar-index">
+    <img src="../images/index_navbar_logo.png" alt="loo">
     <ul>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="#about"><img src="../images/index_navbar_bnt_about.png" alt="btn-about"></a>
+        <a href="#contact"><img src="../images/index_navbar_bnt_contact.png" alt="btn-contact"></a>
     </ul>
 </nav>
 
-<div>
-    <img src="" alt="header-tamagotchi">
+<div class="index-login-sec">
+    <div class="auth-btns">
+        <img class="signupImg" src="../images/btn_signup.png" alt="">
+        <img class="loginImg" src="../images/btn_login.png" alt="">
+    </div>
+</div>
 
+<div hidden class="signup">
     <form action="/user/signup" method="POST">
-        <label for="username">Username: </label>
-        <input type="text" name="username">
-        <label for="password">Password: </label>
-        <input type="password" name="password">
-        <button type="submit">Sign up</button>
-        {{#if signinMessage}}
-            <p>{{signinMessage}}</p>
-        {{/if}}
+    <label for="username">Username: </label>
+    <input type="text" name="username">
+    <label for="password">Password: </label>
+    <input type="password" name="password">
+    <button type="submit">Sign up</button>
+    {{#if signinMessage}}
+    <p>{{signinMessage}}</p>
+    {{/if}}
     </form>
+</div>
 
-    <form action="/user/login" method="POST">
+<div hidden class="login">
+    <form hidden action="/user/login" method="POST">
         <label for="username">Username: </label>
         <input type="text" name="username">
         <label for="password">Password: </label>
         <input type="password" name="password">
         <button type="submit">Log in</button>
         {{#if loginMessage}}
-            <p>{{loginMessage}}</p>
+        <p>{{loginMessage}}</p>
         {{/if}}
     </form>
 </div>
-
-
-<div id="about">
-
 </div>
 
-<div id="contact">
+<script>
+    const signupBtn = document.getElementsByClassName("signupImg")[0]
+    const loginBtn = document.getElementsByClassName("loginImg")[0]
+    const signupForm = document.getElementsByClassName("signup")[0]
+    const loginForm = document.getElementsByClassName("login")[0]
+    signupBtn.addEventListener("click", function () {
+        signupForm.hidden = false;
+        loginForm.hidden = true;
+    });
+    loginBtn.addEventListener("click", function () {
+        signupForm.hidden = true;
+        loginForm.hidden = false;
 
-</div>
+    });
+</script>
+
+
+<divclass="someSpace">
+    </div>
+    <div id="about" class="index-about-sec">
+        <div class="about-div">
+            <img src="../images/index_about_header.png" alt="aboutimg">
+            <p>This CO2 Tamagotchi thrives of green movement. The more you walk,
+                cycle or use public transportation, the more your Tamagotchi will flourish.
+                Start your green movement today!
+            </p>
+        </div>
+
+
+
+    </div>
+
+    <div class="index-contact-sec">
+        <img class="pair-programmingImg" src="../images/index_contact_icon.png" alt="headsup">
+        <img id="contact" class="contactImg" src="../images/index_contact_header.png" alt="aboutimg">
+        <p>Made by the Express Pairprogramming Team</p>
+        <p>bingthemachine@gmail.com</p>
+    </div>
