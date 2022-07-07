@@ -60,39 +60,74 @@ body {
 /* Tamagotchi view */
 h2 {
   color:rgb(42, 153, 150);
-  font-size: 36px;
+  font-size: 32px;
 }
 h3 {
   -webkit-text-stroke: 2px rgb(42, 153, 150);
   color: white;
-  font-size: 32px;
+  font-size: 28px;
 }
-.tracking-start-img {
+h4 {
+  color:black;
+  line-height: 1.4;
+}
+.tracking-img {
   width: 120px;
+  margin: 40px 0;
+}
+.track-btns {
+  color: white;
+  background-color: rgb(136 223 198);
+  font-family: 'Press Start 2P', cursive;
+  padding: 8px 12px;
+  border: none;
+  margin-bottom: 10px;
 }
 #walking-start-btn, #cycling-start-btn, #public-start-btn {
   border:none;
   background: transparent;
 }
-.tamagotchi-img {
-  width: 33vw;
+.submit-km-btn {
+  background-color: rgb(255, 194, 202);
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+  height: 30px;
+  padding: 5px 8px;
+  border: none;
 }
-.chart {
-  height: 30vw;
-}
-
 .avatar-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding-left: 30px;
-  padding-right: 30px;
   align-items: center;
 }
 .tracking-area {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
+}
+.track-image-container {
+  display: flex;
+  flex-direction: column;
+}
+#geo-walk-input, #geo-cycle-input, #geo-public-input {
+  width: 80px;
+  height: 30px;
+}
+.tracking-km-container {
+  width: 60%;
+  margin-left: 40px;
+}
+.hidden-avatar {
+  margin-left: 30px;
+}
+
+.tamagotchi-img {
+  width: 35vw;
+}
+.chart {
+  height: 30vw;
 }
 .bar-container {
   background-image: url("../images/navbar_bottom.png");
@@ -110,4 +145,7 @@ h3 {
 }
 .bar-img {
   width: 340px;
+}
+p {
+  font-size: 12px;
 }
