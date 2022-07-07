@@ -1,12 +1,27 @@
-<h1>Hello {{userInSession.username}}</h1>
 <!--User Settings-->
-<div>
-    <a href="/user/delete/{{userInSession._id}}">Delete User</a>
-    <br>
-    <a href="/user/logout">Logout</a>
+
+<nav class="navbar">
+    <h1>Hello {{userInSession.username}}</h1>
+    <ul>    
+        <a href="/user/logout"><img src="./images/btn_logout.png" alt="logout" /></a>
+        <a href="/user/delete/{{userInSession._id}}"><img src="./images/btn_add_delete user.png" alt="delete" /></a>
+    </ul>
+</nav>
+
+<div class="create-egg">
+   
+    <input type="text" class="name-tamagotchi">
+    <button type="submit" style="border: 0; background: transparent">
+        <img class="create-btn" src="./images/btn_create tamagotchi.png" alt="submit" />
+    </button>
 </div>
+
+
+
 <!--Tamagotchi Settings-->
-<div>
+
+<div hidden>
+    <div>
     <form action="/tamagotchi/create" method="POST">
         <label for="avatarName">Enter Avatar Name:</label>
         <input type="text" name="avatarName">
@@ -155,3 +170,5 @@ const config = {
     config
   );
 </script>
+
+</div>
