@@ -1,12 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+  font-family: 'Press Start 2P', cursive;
+  margin: 0;
+  padding: 0;
 }
 
-a {
-  color: #00b7ff;
+/* This is the index nav bar */
+.navbar-index {
+  height: 120px;
+  background-image: url("../images/index_navbar_backg.png");
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-h1 {
-  color: 15px;
+.navbar-index img {
+  height: 70px;
+  padding-left: 30px;
+}
+
+.navbar-index ul {
+  padding-right: 30px;
+}
+
+/*index login sec*/
+.index-login-sec {
+  height: 100vh;
+  background-image: url("../images/logo_tamagotchi.png");
+  background-size: 1500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+}
+
+
+.auth-btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.signupImg {
+  height: 80px;
+}
+
+.loginImg {
+  height: 85px;
+}
+
+.someSpace {
+  height: 30px;
+}
+
+.signup {
+  width: 300px;
+  margin: 60px auto 30px;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+  line-height: 1.8;
+  color: #87DFC6;
+  font-size: medium;
+  background-color: white;
+  position: relative;
+}
+
+/*index about section*/
+.index-about-sec {
+  height: 100vh;
+  background-image: url("../images/index_about_window.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.index-about-sec img {
+  height: 80px;
+}
+
+.about-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  line-height: 1.8;
+  color: #87DFC6;
+  padding-left: 140px;
+  padding-right: 140px;
+}
+
+/*index contact section */
+.index-contact-sec {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  line-height: 1.8;
+  color: #87DFC6;
+  font-size: small;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.pair-programmingImg {
+  height: 500px;
+  padding-bottom: 25px;
+}
+
+.contactImg {
+  height: 80px;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
