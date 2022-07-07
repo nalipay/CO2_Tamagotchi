@@ -16,6 +16,7 @@ router.get("/", isLoggedIn, (req, res, next) => {
         .then(tamagotchiFromDB => {
             let totalMovement = tamagotchiFromDB?.levelFeatures.walking + tamagotchiFromDB?.levelFeatures.cycling + tamagotchiFromDB?.levelFeatures.publicTransport
             let level = 0;
+            const tamagotchiNotFound = !tamagotchiFromDB
             if (totalMovement >= 0 && totalMovement <= 50) {
                 level = 1
             } else if (totalMovement >= 51 && totalMovement <= 100) {
@@ -26,8 +27,9 @@ router.get("/", isLoggedIn, (req, res, next) => {
                 level = 'Cheater!!'
             }
             
+            
             console.log(totalMovement)
-            res.render('user', { userInSession: req.session.currentUser, tamagotchiDetails: tamagotchiFromDB, level })
+            res.render('user', { userInSession: req.session.currentUser, tamagotchiDetails: tamagotchiFromDB, level, tamagotchiNotFound })
         })
         .catch(err => next(err))
 });
@@ -135,5 +137,7 @@ router.get('/delete/:id', (req, res, next) => {
         });
 
 })
+
+
 
 module.exports = router;

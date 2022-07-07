@@ -180,5 +180,3 @@ window.onload = function () {
         //   3: timed out
     });
 };
-
-
