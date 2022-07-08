@@ -12,6 +12,9 @@ body {
 .navbar-index {
   height: 120px;
   background-image: url("../images/index_navbar_backg.png");
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .navbar {
   background-image: url("../images/navbar_top.png");
