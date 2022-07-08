@@ -1,6 +1,6 @@
 // WALKING 
-get current location
-const walkingStartBtn = document.getElementById('walking-start-btn');
+// get current location
+const walkingStartBtn = document.getElementById('walking-start-btn2');
 walkingStartBtn.addEventListener('click', () => {
     // console.log('clicked');
     var startPos;
@@ -60,8 +60,8 @@ window.onload = function () {
 };
 
 //CYCLING
-get current location
-const cyclingStartBtn = document.getElementById('cycling-start-btn');
+// get current location
+const cyclingStartBtn = document.getElementById('cycling-start-btn2');
 cyclingStartBtn.addEventListener('click', () => {
     // console.log('clicked');
     var startPos;
@@ -122,7 +122,7 @@ window.onload = function () {
 
 // PUBLIC TRANSPORT
 
-const publicStartBtn = document.getElementById('public-start-btn');
+const publicStartBtn = document.getElementById('public-start-btn2');
 publicStartBtn.addEventListener('click', () => {
     // console.log('clicked');
     var startPos;

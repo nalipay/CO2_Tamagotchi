@@ -14,6 +14,9 @@ router.get("/", isLoggedIn, (req, res, next) => {
     const userId = req.session.currentUser._id;
     Tamagotchi.findOne({ user: userId })
         .then(tamagotchiFromDB => {
+            const avatarLevelImg = document.getElementById('avatar-img').src
+            console.log(avatarLevelImg)
+
             let totalMovement = tamagotchiFromDB?.levelFeatures.walking + tamagotchiFromDB?.levelFeatures.cycling + tamagotchiFromDB?.levelFeatures.publicTransport
             let level = 0;
             const tamagotchiNotFound = !tamagotchiFromDB
@@ -21,18 +24,20 @@ router.get("/", isLoggedIn, (req, res, next) => {
                 level = 1
             } else if (totalMovement >= 51 && totalMovement <= 100) {
                 level = 2
+                avatarLevelImg = '../images/tg_lv_02.png'
             } else if (totalMovement >= 101) {
                 level = 3
+                avatarLevelImg = '../images/tg_lv_03.png'
             } else if (totalMovement < 0) {
                 level = 'Cheater!!'
             }
-            
-            
             console.log(totalMovement)
             res.render('user', { userInSession: req.session.currentUser, tamagotchiDetails: tamagotchiFromDB, level, tamagotchiNotFound })
         })
         .catch(err => next(err))
+
 });
+
 
 // Tamagotchi create
 router.post('/create', (req, res, next) => {

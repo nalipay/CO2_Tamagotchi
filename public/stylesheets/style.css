@@ -65,17 +65,21 @@ body {
   height: 30px;
 }
 
-.signup {
+.authent {
   width: 300px;
   margin: 60px auto 30px;
   padding: 10px;
-  position: relative;
-  text-align: center;
   line-height: 1.8;
-  color: #87DFC6;
   font-size: medium;
   background-color: white;
-  position: relative;
+}
+.authent-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px 0;
+  color: #87DFC6;
+
 }
 .navbar h1 {
   color: white;
@@ -199,6 +203,7 @@ h4 {
   padding: 8px 12px;
   border: none;
   margin-bottom: 10px;
+  border-radius: 15px;
 }
 #walking-start-btn, #cycling-start-btn, #public-start-btn {
   border:none;
@@ -211,6 +216,7 @@ h4 {
   height: 30px;
   padding: 5px 8px;
   border: none;
+  border-radius: 15px;
 }
 .avatar-container {
   display: flex;
@@ -231,6 +237,8 @@ h4 {
 #geo-walk-input, #geo-cycle-input, #geo-public-input {
   width: 80px;
   height: 30px;
+  padding-top: 6px;
+  border-radius: 15px;
 }
 .tracking-km-container {
   width: 60%;

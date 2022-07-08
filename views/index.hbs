@@ -8,53 +8,38 @@
 
 <div class="index-login-sec">
     <div class="auth-btns">
-        <img class="signupImg" src="../images/btn_signup.png" alt="">
-        <img class="loginImg" src="../images/btn_login.png" alt="">
+        <a href="#signup"><img class="signupImg" src="../images/btn_signup.png" alt=""></a>
+        <a href="#login"><img class="loginImg" src="../images/btn_login.png" alt=""></a>
     </div>
 </div>
-
-<div hidden class="signup">
+<div >
+<div class="authent-container" id="signup" class="authent">
     <form action="/user/signup" method="POST">
     <label for="username">Username: </label>
     <input type="text" name="username">
     <label for="password">Password: </label>
     <input type="password" name="password">
-    <button type="submit">Sign up</button>
+    <button class="submit-km-btn" type="submit">Sign up</button>
     {{#if signinMessage}}
     <p>{{signinMessage}}</p>
     {{/if}}
     </form>
 </div>
 
-<div hidden class="login">
-    <form hidden action="/user/login" method="POST">
+<div class="authent-container" id="login" class="authent">
+    <form action="/user/login" method="POST">
         <label for="username">Username: </label>
         <input type="text" name="username">
         <label for="password">Password: </label>
         <input type="password" name="password">
-        <button type="submit">Log in</button>
+        <button class="submit-km-btn" type="submit">Log in</button>
         {{#if loginMessage}}
         <p>{{loginMessage}}</p>
         {{/if}}
     </form>
+    </div>
 </div>
 </div>
-
-<script>
-    const signupBtn = document.getElementsByClassName("signupImg")[0]
-    const loginBtn = document.getElementsByClassName("loginImg")[0]
-    const signupForm = document.getElementsByClassName("signup")[0]
-    const loginForm = document.getElementsByClassName("login")[0]
-    signupBtn.addEventListener("click", function () {
-        signupForm.hidden = false;
-        loginForm.hidden = true;
-    });
-    loginBtn.addEventListener("click", function () {
-        signupForm.hidden = true;
-        loginForm.hidden = false;
-
-    });
-</script>
 
 
 <divclass="someSpace">
