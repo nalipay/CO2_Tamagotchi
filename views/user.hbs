@@ -3,224 +3,194 @@
 <nav class="navbar">
   <h1>Hello {{userInSession.username}}</h1>
   <ul>
-    <a href="/user/logout"><img
-        src="./images/btn_logout.png"
-        alt="logout"
-      /></a>
-    <a href="/user/delete/{{userInSession._id}}"><img
-        src="./images/btn_add_delete user.png"
-        alt="delete"
-      /></a>
+    <a href="/user/logout"><img src="./images/btn_logout.png" alt="logout" /></a>
+    <a href="/user/delete/{{userInSession._id}}"><img src="./images/btn_add_delete user.png" alt="delete" /></a>
   </ul>
 </nav>
 
 <!--View Handler Show and hide specific parts-->
 {{#if tamagotchiNotFound}}
-  <div class="starter-egg">
-    <form action="/tamagotchi/create" method="POST" class="create-egg">
-      <input
-        type="text"
-        class="name-tamagotchi"
-        placeholder="Enter Avatar Name"
-        name="avatarName"
-      />
-      <button
-        type="submit"
-        style="border: 0; background: transparent"
-        class="create-btn"
-      >
-        <img
-          class="create-btn-img"
-          src="./images/btn_create tamagotchi.png"
-          alt="submit"
-        />
-      </button>
-    </form>
-  </div>
+<div class="starter-egg">
+  <form action="/tamagotchi/create" method="POST" class="create-egg">
+    <input type="text" class="name-tamagotchi" placeholder="Enter Avatar Name" name="avatarName" />
+    <button type="submit" style="border: 0; background: transparent" class="create-btn">
+      <img class="create-btn-img" src="./images/btn_create tamagotchi.png" alt="submit" />
+    </button>
+  </form>
+</div>
 
 {{else}}
 
-  <div class="hidden-avatar">
-    <h2>Tamagotchi {{tamagotchiDetails.avatarName}}</h2>
-    <h3>Level {{level}}</h3>
-    <div class="avatar-container">
+<div class="hidden-avatar">
+  <h2>Tamagotchi {{tamagotchiDetails.avatarName}}</h2>
+  <h3>Level {{level}}</h3>
+  <div class="avatar-container">
 
-      <div class="tracking-area">
-        <div class="track-image-container">
+    <div class="tracking-area">
+      <div class="track-image-container">
 
-          <!--Geolocation Walking-->
-          <img
-            class="tracking-img"
-            src="./images/btn_add_walking.png"
-            alt="walk"
-          />
-          <img
-            class="tracking-img"
-            src="./images/btn_add_cycling.png"
-            alt="cycle"
-          />
-          <img
-            class="tracking-img"
-            src="./images/btn_add_public transport.png"
-            alt="train"
-          />
-        </div>
-
-        <div class="tracking-km-container">
-
-          <button id="walking-start-btn2" class="track-btns">Start Walking</button>
-          <button id="walking-stop-btn" class="track-btns">Stop Walking</button>
-
-          <div id="tripmeter">
-            <p hidden>
-              Starting Location (lat, lon):<br />
-              <span id="startLat">???</span>°,
-              <span id="startLon">???</span>°
-            </p>
-            <p hidden>
-              Current Location (lat, lon):<br />
-              <span id="currentLat">???</span>°,
-              <span id="currentLon">???</span>°
-            </p>
-            <p hidden>
-              Distance from starting location:
-              <span id="distance-walking">0</span>
-              km
-            </p>
-          </div>
-
-          <!--Walking-->
-
-          <form
-            action="/tamagotchi/walking/{{tamagotchiDetails._id}}"
-            method="POST"
-          >
-            <label for="levelFeatures.walking">km</label>
-            <input id="geo-walk-input" type="number" name="km" />
-            <button class="submit-km-btn" type="submit">Submit</button>
-          </form>
-          <h4>Total Walking: {{tamagotchiDetails.levelFeatures.walking}}</h4>
-          <br />
-
-          <!--Geolocation Cycling-->
-          <button id="cycling-start-btn2" class="track-btns">Start Cycling</button>
-          <button id="cycling-stop-btn" class="track-btns">Stop Cycling</button>
-
-          <div id="tripmeter">
-            <p hidden>
-              Starting Location (lat, lon):<br />
-              <span id="startLat">???</span>°,
-              <span id="startLon">???</span>°
-            </p>
-            <p hidden>
-              Current Location (lat, lon):<br />
-              <span id="currentLat">???</span>°,
-              <span id="currentLon">???</span>°
-            </p>
-            <p hidden>
-              Distance from starting location:
-              <span id="distance-cycling">0</span>
-              km
-            </p>
-          </div>
-
-          <!--Cycling-->
-          <form
-            action="/tamagotchi/cycling/{{tamagotchiDetails._id}}"
-            method="POST"
-          >
-            <label for="levelFeatures.cycling">km</label>
-            <input id="geo-cycle-input" type="number" name="km" />
-            <button class="submit-km-btn" type="submit">Submit</button>
-          </form>
-          <h4>Total Cycling: {{tamagotchiDetails.levelFeatures.cycling}}</h4>
-          <br />
-
-          <!--Geolocation Public Transport-->
-          <button id="public-start-btn2" class="track-btns">Start Journey</button>
-          <button id="public-stop-btn" class="track-btns">Stop Journey</button>
-
-          <div id="tripmeter">
-            <p hidden>
-              Starting Location (lat, lon):<br />
-              <span id="startLat">???</span>°,
-              <span id="startLon">???</span>°
-            </p>
-            <p hidden>
-              Current Location (lat, lon):<br />
-              <span id="currentLat">???</span>°,
-              <span id="currentLon">???</span>°
-            </p>
-            <p hidden>
-              Distance from starting location:
-              <span id="distance-public">0</span>
-              km
-            </p>
-          </div>
-
-          <!--Public Transport-->
-          <form
-            action="/tamagotchi/publicTransport/{{tamagotchiDetails._id}}"
-            method="POST"
-          >
-            <label for="levelFeatures.publicTransport">km</label>
-            <input id="geo-public-input" type="number" name="km" />
-            <button class="submit-km-btn" type="submit">Submit</button>
-          </form>
-          <h4>Total Public Transportation:
-            {{tamagotchiDetails.levelFeatures.publicTransport}}</h4>
-          <br />
-
-          <!--Delete Tamagotchi-->
-          <!--<a href="/tamagotchi/delete/{{tamagotchiDetails._id}}">Delete Tamagotchi</a>-->
-        </div>
+        <!--Geolocation Walking-->
+        <img class="tracking-img" src="./images/btn_add_walking.png" alt="walk" />
+        <img class="tracking-img" src="./images/btn_add_cycling.png" alt="cycle" />
+        <img class="tracking-img" src="./images/btn_add_public transport.png" alt="train" />
       </div>
 
-      <div><img
-          id="avatar-img"
-          class="tamagotchi-img"
-          src="./images/tg_lv_01.png"
-        /></div>
+      <div class="tracking-km-container">
 
-      <div class="chart">
-        <div>
-          <canvas id="myChart"></canvas>
+        <button id="walking-start-btn2" class="track-btns">Start Walking</button>
+        <button id="walking-stop-btn" class="track-btns">Stop Walking</button>
+
+        <div id="tripmeter">
+          <p hidden>
+            Starting Location (lat, lon):<br />
+            <span id="startLat">???</span>°,
+            <span id="startLon">???</span>°
+          </p>
+          <p hidden>
+            Current Location (lat, lon):<br />
+            <span id="currentLat">???</span>°,
+            <span id="currentLon">???</span>°
+          </p>
+          <p hidden>
+            Distance from starting location:
+            <span id="distance-walking">0</span>
+            km
+          </p>
         </div>
 
-        <script>
-          const labels = [ 'Walking', 'Cycling', 'Public Transportation', ];
-          const walkingChart =
-          {{tamagotchiDetails.levelFeatures.walking}}
-          const cyclingChart =
-          {{tamagotchiDetails.levelFeatures.cycling}}
-          const publicChart =
-          {{tamagotchiDetails.levelFeatures.publicTransport}}
+        <!--Walking-->
 
-          const data = { labels: labels, datasets: [{ backgroundColor:[
-          'rgb(255, 194, 202)', 'rgb(42, 153, 150)', 'rgb(33, 185, 126)'], data:
-          [walkingChart, cyclingChart, publicChart], }] }; const config = {
-          type: 'polarArea', data: data, options: {} };
-        </script>
+        <form action="/tamagotchi/walking/{{tamagotchiDetails._id}}" method="POST">
+          <label for="levelFeatures.walking">km</label>
+          <input id="geo-walk-input" type="number" name="km" />
+          <button class="submit-km-btn" type="submit">Submit</button>
+        </form>
+        <h4>Total Walking: {{tamagotchiDetails.levelFeatures.walking}}</h4>
+        <br />
 
-        <script>
-          const myChart = new Chart( document.getElementById('myChart'), config
-          );
-        </script>
+        <!--Geolocation Cycling-->
+        <button id="cycling-start-btn2" class="track-btns">Start Cycling</button>
+        <button id="cycling-stop-btn" class="track-btns">Stop Cycling</button>
+
+        <div id="tripmeter">
+          <p hidden>
+            Starting Location (lat, lon):<br />
+            <span id="startLat">???</span>°,
+            <span id="startLon">???</span>°
+          </p>
+          <p hidden>
+            Current Location (lat, lon):<br />
+            <span id="currentLat">???</span>°,
+            <span id="currentLon">???</span>°
+          </p>
+          <p hidden>
+            Distance from starting location:
+            <span id="distance-cycling">0</span>
+            km
+          </p>
+        </div>
+
+        <!--Cycling-->
+        <form action="/tamagotchi/cycling/{{tamagotchiDetails._id}}" method="POST">
+          <label for="levelFeatures.cycling">km</label>
+          <input id="geo-cycle-input" type="number" name="km" />
+          <button class="submit-km-btn" type="submit">Submit</button>
+        </form>
+        <h4>Total Cycling: {{tamagotchiDetails.levelFeatures.cycling}}</h4>
+        <br />
+
+        <!--Geolocation Public Transport-->
+        <button id="public-start-btn2" class="track-btns">Start Journey</button>
+        <button id="public-stop-btn" class="track-btns">Stop Journey</button>
+
+        <div id="tripmeter">
+          <p hidden>
+            Starting Location (lat, lon):<br />
+            <span id="startLat">???</span>°,
+            <span id="startLon">???</span>°
+          </p>
+          <p hidden>
+            Current Location (lat, lon):<br />
+            <span id="currentLat">???</span>°,
+            <span id="currentLon">???</span>°
+          </p>
+          <p hidden>
+            Distance from starting location:
+            <span id="distance-public">0</span>
+            km
+          </p>
+        </div>
+
+        <!--Public Transport-->
+        <form action="/tamagotchi/publicTransport/{{tamagotchiDetails._id}}" method="POST">
+          <label for="levelFeatures.publicTransport">km</label>
+          <input id="geo-public-input" type="number" name="km" />
+          <button class="submit-km-btn" type="submit">Submit</button>
+        </form>
+        <h4>Total Public Transportation:
+          {{tamagotchiDetails.levelFeatures.publicTransport}}</h4>
+        <br />
+
+        <!--Delete Tamagotchi-->
+        <!--<a href="/tamagotchi/delete/{{tamagotchiDetails._id}}">Delete Tamagotchi</a>-->
       </div>
     </div>
-  </div>
 
-  <div class="bar-container">
-    <div class="bar-img-container">
-      <img class="bar-img" src="./images/bar_walking.png" />
-      <img class="bar-img" src="./images/bar_cycling.png" />
-      <img class="bar-img" src="./images/bar_public transport.png" />
-      <a href="/tamagotchi/delete/{{tamagotchiDetails._id}}"><img
-          class="bar-img"
-          src="./images/btn_delete_delete tamagotchi.png"
-        /></a>
+
+    {{#ifEquals level "1"}}
+    <div><img id="levelupImg" class="tamagotchi-img" src="./images/tg_lv_01.png" /></div>
+    {{/ifEquals}}
+
+    {{#ifEquals level "2"}}
+    <div><img id="levelupImg" class="tamagotchi-img" src="./images/tg_lv_02.png" /></div>
+    {{/ifEquals}}
+
+    {{#ifEquals level "3"}}
+    <div><img id="levelupImg" class="tamagotchi-img" src="./images/tg_lv_03.png" /></div>
+    {{/ifEquals}}
+
+    <div class="chart">
+      <div>
+        <canvas id="myChart"></canvas>
+      </div>
+
+      <script>
+        const labels = ['Walking', 'Cycling', 'Public Transportation',];
+        const walkingChart =
+          {{ tamagotchiDetails.levelFeatures.walking }}
+        const cyclingChart =
+          {{ tamagotchiDetails.levelFeatures.cycling }}
+        const publicChart =
+          {{ tamagotchiDetails.levelFeatures.publicTransport }}
+
+        const data = {
+          labels: labels, datasets: [{
+            backgroundColor: [
+              'rgb(255, 194, 202)', 'rgb(42, 153, 150)', 'rgb(33, 185, 126)'], data:
+              [walkingChart, cyclingChart, publicChart],
+          }]
+        }; const config = {
+          type: 'polarArea', data: data, options: {}
+        };
+      </script>
+
+      <script>
+        const myChart = new Chart(document.getElementById('myChart'), config
+        );
+      </script>
     </div>
-
   </div>
+</div>
+
+<div class="bar-container">
+  <div class="bar-img-container">
+    <img class="bar-img" src="./images/bar_walking.png" />
+    <img class="bar-img" src="./images/bar_cycling.png" />
+    <img class="bar-img" src="./images/bar_public transport.png" />
+    <a href="/tamagotchi/delete/{{tamagotchiDetails._id}}"><img class="bar-img"
+        src="./images/btn_delete_delete tamagotchi.png" /></a>
+  </div>
+
+</div>
 
 {{/if}}
