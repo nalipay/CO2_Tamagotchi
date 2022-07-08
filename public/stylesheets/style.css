@@ -244,7 +244,8 @@ h4 {
   width: 35vw;
 }
 .chart {
-  height: 30vw;
+  height: 40vw;
+  margin-right: 30px;
 }
 .bar-container {
   background-image: url("../images/navbar_bottom.png");
